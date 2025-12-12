@@ -23,9 +23,7 @@ export default function RootLayout({
         <style>
           {`@import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');`}
           {`@import url('https://fonts.googleapis.com/css2?family=Lugrasimo&display=swap');`}
-                    {`@import url('https://fonts.googleapis.com/css2?family=Story+Script&display=swap');
-`}
-
+         {`@import url('https://fonts.googleapis.com/css2?family=Story+Script&display=swap');`}
         </style>
       </head>
       <body className={`${inter.variable} ${outfit.variable} ${playfair.variable} font-sans antialiased text-slate-800 bg-stone-50`}>
