@@ -216,15 +216,15 @@ export default function FlipbookModal({ isOpen, onClose }: FlipbookModalProps) {
                                 {/* PAGE 2: MỤC LỤC */}
                                 <Page number={2}>
                                     <div className="flex flex-col h-full justify-center">
-                                        <h2 className="font-serif text-3xl font-bold text-center text-[#A67C52] mb-8 border-b-2 border-[#A67C52] pb-4 inline-block mx-auto">Mục Lục</h2>
+                                        <h2 className="font-serif text-lg md:text-3xl font-bold text-center text-[#A67C52] mb-8 border-b-2 border-[#A67C52] pb-4 inline-block mx-auto">Mục Lục</h2>
                                         <ul className="space-y-4 px-4">
                                             {toc.map((item, idx) => (
                                                 <li key={idx} className="flex items-baseline justify-between text-slate-700 hover:text-[#A67C52] transition-colors cursor-pointer group">
-                                                    <span className="font-serif text-lg font-medium relative z-10 bg-[#fffcf7] pr-2 group-hover:pl-2 transition-all">
+                                                    <span className="font-serif text-[10px] md:text-lg font-medium relative z-10 bg-[#fffcf7] pr-2 group-hover:pl-2 transition-all">
                                                         {idx + 1}. {item}
                                                     </span>
                                                     <span className="flex-1 border-b border-dotted border-slate-300 mx-2 relative -top-1"></span>
-                                                    <span className="text-sm font-mono text-slate-400">{idx === 0 ? '1' : ''}</span>
+                                                    <span className="text-[9px] md:text-sm font-mono text-slate-400">{idx === 0 ? '1' : ''}</span>
                                                 </li>
                                             ))}
                                         </ul>
@@ -237,8 +237,8 @@ export default function FlipbookModal({ isOpen, onClose }: FlipbookModalProps) {
                                         <div className="mb-6 mx-auto w-12 h-12 text-[#A67C52]">
                                             <Leaf className="w-full h-full" />
                                         </div>
-                                        <h2 className="story-script-regular text-3xl font-bold text-[#2D2A26] mb-6">Lời Nói Đầu</h2>
-                                        <p className="text-slate-600 leading-relaxed text-lg font-light italic">
+                                        <h2 className="story-script-regular text-lg md:text-3xl font-bold text-[#2D2A26] mb-6">Lời Nói Đầu</h2>
+                                        <p className="text-slate-600 leading-relaxed text-[10px] md:text-lg font-light italic">
                                             &quot;Nhóm 60 - CNTT & TT ULIS hiểu rõ cuộc chiến giữa chi tiêu và dinh dưỡng của bạn. Chúng mình mong E-book này là cầu nối giúp sinh viên tự chủ tài chính ngay từ căn bếp, mang đến giải pháp <strong className="text-[#A67C52] not-italic">&quot;CƠM TỰ NẤU, TIỀN TỰ CHỦ&quot;</strong> dành riêng cho cộng đồng ULIS.&quot;
                                         </p>
                                         <div className="mt-8 w-24 h-0.5 bg-[#A67C52] mx-auto opacity-50"></div>
@@ -247,14 +247,14 @@ export default function FlipbookModal({ isOpen, onClose }: FlipbookModalProps) {
                                 {/* PAGE 4: SURVIVAL MEAL LÀ GÌ? */}
                                 <Page number={4}>
                                      <div className="flex flex-col h-full justify-center">
-                                        <h2 className="font-serif text-2xl font-bold text-[#2D2A26] mb-6 border-l-4 border-[#A67C52] pl-4">Survival Meal ULIS là gì?</h2>
-                                        <div className="text-slate-600 space-y-4 text-justify leading-relaxed text-sm md:text-base">
+                                        <h2 className="font-serif text-base md:text-2xl font-bold text-[#2D2A26] mb-6 border-l-4 border-[#A67C52] pl-4">Survival Meal ULIS là gì?</h2>
+                                        <div className="text-slate-600 space-y-4 text-justify leading-relaxed text-[9px] md:text-base">
                                             <p><strong className="text-[#A67C52]">Survival Meal ULIS</strong> là &quot;Kỹ thuật sinh tồn ẩm thực&quot; được thiết kế riêng cho sinh viên ULIS: bữa ăn cung cấp đủ năng lượng và dinh dưỡng để bạn vượt qua ngày dài học tập và hoạt động, với chi phí dưới <strong className="text-slate-900">25.000 VNĐ</strong> và thời gian chế biến dưới <strong className="text-slate-900">15 phút</strong>:</p>
                                             <ul className="list-disc pl-5 space-y-2 marker:text-[#A67C52]">
                                                 <li>Survival Meal là công cụ kiểm soát tài chính hiệu quả nhất, giúp bạn đảm bảo mọi bữa ăn đều nằm trong ngân sách dưới 25.000 VNĐ, biến việc nấu ăn thành kỹ năng tiết kiệm tiền mặt.</li>
                                                 <li>Với cam kết chỉ 15 phút chế biến, bữa ăn này giúp bạn phá vỡ rào cản thời gian, giải phóng quỹ thời gian quý báu để tập trung vào việc học, hoạt động ngoại khóa hoặc nghỉ ngơi.</li>
                                             </ul>
-                                            <p className="bg-[#A67C52]/10 p-3 rounded-lg border border-[#A67C52]/20 italic text-slate-800 text-sm">
+                                            <p className="bg-[#A67C52]/10 p-3 rounded-lg border border-[#A67C52]/20 italic text-slate-800 text-[9px] md:text-sm">
                                                 Đây là bữa ăn &quot;ngon, bổ, rẻ&quot; đã được thẩm định. Nó đảm bảo bạn duy trì được năng lượng và sức khỏe cần thiết để &quot;sinh tồn&quot; và vượt qua lịch trình bận rộn của sinh viên ULIS.
                                             </p>
                                         </div>
@@ -264,12 +264,12 @@ export default function FlipbookModal({ isOpen, onClose }: FlipbookModalProps) {
                                 {/* PAGE 5: LUẬT CHƠI */}
                                 <Page number={5}>
                                     <div className="flex flex-col h-full justify-center">
-                                        <h2 className="font-serif text-2xl font-bold text-center text-[#2D2A26] mb-8 uppercase tracking-widest">Luật Chơi<br/><span className="text-[#A67C52] text-sm lowercase tracking-normal font-sans italic">của The Right Meal</span></h2>
+                                        <h2 className="font-serif text-base md:text-2xl font-bold text-center text-[#2D2A26] mb-8 uppercase tracking-widest">Luật Chơi<br/><span className="text-[#A67C52] text-[10px] md:text-sm lowercase tracking-normal font-sans italic">của The Right Meal</span></h2>
                                         <div className="space-y-6">
                                             {rules.map((rule, idx) => (
                                                 <div key={idx} className="bg-white p-4 rounded-lg shadow-sm border border-[#A67C52]/20">
-                                                    <h4 className="font-serif font-bold text-[#A67C52] mb-1">{rule.title}</h4>
-                                                    <p className="text-slate-600 text-sm leading-relaxed">{rule.content}</p>
+                                                    <h4 className="font-serif font-bold text-[#A67C52] mb-1 text-xs md:text-base">{rule.title}</h4>
+                                                    <p className="text-slate-600 text-[9px] md:text-sm leading-relaxed">{rule.content}</p>
                                                 </div>
                                             ))}
                                         </div>
@@ -294,19 +294,19 @@ export default function FlipbookModal({ isOpen, onClose }: FlipbookModalProps) {
                                             <div className="w-full flex-1 flex flex-col items-center">
                                                 <div className="bg-white/50 p-4 rounded-xl border border-[#A67C52]/10 w-full h-full flex flex-col">
                                                     
-                                                     <h3 className="story-script-regular font-bold text-2xl text-[#2D2A26] leading-tight text-center mb-2">
+                                                     <h3 className="story-script-regular font-bold text-lg md:text-2xl text-[#2D2A26] leading-tight text-center mb-2">
                                                         <span className="text-[#A67C52] mr-2">#{recipe.id}.</span>
                                                         {recipe.title}
                                                     </h3>
 
-                                                    <div className="w-full aspect-square relative rounded-xl overflow-hidden shadow-md mb-6 shrink-0 max-h-[230px] md:max-h-[280px]">
+                                                    <div className="md:w-full w-[120px] mx-auto aspect-square relative rounded-xl overflow-hidden shadow-md mb-4 md:mb-6 shrink-0 max-h-[120px] md:max-h-[280px]">
                                                         <Image src={recipe.image || '/placeholder-food.jpg'} alt={recipe.title} fill className="object-cover" />
                                                     </div>
 
                                                     <div className="flex-1 overflow-auto w-full  px-2">
                                                         <div>
-                                                            <p className="text-xs text-slate-500 font-bold uppercase tracking-wider border-b border-dashed border-slate-300 pb-1">Nguyên Liệu:</p>
-                                                            <ul className="text-sm text-slate-700 leading-relaxed list-none pl-0 m-0 ">
+                                                            <p className="text-[9px] md:text-xs text-slate-500 font-bold uppercase tracking-wider border-b border-dashed border-slate-300 pb-1">Nguyên Liệu:</p>
+                                                            <ul className="text-[9px] md:text-sm text-slate-700 leading-relaxed list-none pl-0 m-0 ">
                                                                 {recipe.ingredients.split(/,|;/).map((item: string, i: number) => (
                                                                     <li key={i} className="pl-4 relative before:content-['-'] before:absolute before:left-0 before:text-slate-400">
                                                                         {item.trim()}
@@ -314,9 +314,9 @@ export default function FlipbookModal({ isOpen, onClose }: FlipbookModalProps) {
                                                                 ))}
                                                             </ul>
                                                         </div>
-                                                        <div>
-                                                            <p className="text-xs text-slate-500 font-bold uppercase tracking-wider border-b border-dashed border-slate-300 pb-1">Cách Làm:</p>
-                                                            <ul className="text-sm text-slate-700 leading-relaxed list-none pl-0 m-0 ">
+                                                        <div className="mt-2">
+                                                            <p className="text-[9px] md:text-xs text-slate-500 font-bold uppercase tracking-wider border-b border-dashed border-slate-300 pb-1">Cách Làm:</p>
+                                                            <ul className="text-[9px] md:text-sm text-slate-700 leading-relaxed list-none pl-0 m-0 ">
                                                                 {recipe.method.split('→').map((step: string, i: number) => (
                                                                     <li key={i} className="pl-4 relative before:content-['•'] before:absolute before:left-0 before:text-[#A67C52]">
                                                                         <span className="font-semibold text-slate-600 mr-2">B{i+1}:</span>
@@ -335,18 +335,18 @@ export default function FlipbookModal({ isOpen, onClose }: FlipbookModalProps) {
                                 {/* PAGE 15: NUTRITION PART 1 (Items 1-3) */}
                                 <Page number={15}>
                                     <div className="flex flex-col h-full px-2">
-                                         <h2 className="font-serif text-3xl font-bold text-center text-[#2D2A26] mb-4 pt-6">Bảng Tính Dinh Dưỡng</h2>
+                                         <h2 className="font-serif text-lg md:text-3xl font-bold text-center text-[#2D2A26] mb-4 ">Bảng Dinh Dưỡng</h2>
                                          
-                                         <div className="flex-1 pb-4">
+                                         <div className="flex-1">
                                             {/* Intro Text - Beige Box */}
-                                            <div className="mb-6 text-xs sm:text-sm text-slate-700 text-justify leading-relaxed bg-[#FDF6E3] p-4 rounded-xl border border-[#A67C52]/20 shadow-sm">
+                                            <div className="mb-6 text-[9px] sm:text-sm text-slate-700 text-justify leading-relaxed bg-[#FDF6E3] p-4 rounded-xl border border-[#A67C52]/20 shadow-sm">
                                                 <strong className="text-[#A67C52]">Bạn không cần phải là chuyên gia dinh dưỡng để biết mình đang nạp gì vào cơ thể!</strong> Survival Meal ULIS không chỉ giúp bạn &quot;sống sót&quot; về tài chính mà còn giúp bạn &quot;phát triển&quot; về thể chất. Mỗi bữa ăn đều là một quyết định chiến lược giúp bạn khỏe mạnh và duy trì ngân sách dưới <strong className="text-[#A67C52]">25.000 VNĐ</strong> một cách thông minh nhất.
                                             </div>
 
                                             {/* Table Implementation - Part 1 */}
-                                            <div className="w-full text-xs sm:text-[11px] md:text-xs">
+                                            <div className="w-full text-[8px] sm:text-[11px] md:text-xs">
                                                 {/* Header */}
-                                                <div className="grid grid-cols-12 gap-2 bg-[#1A202C] text-white p-3 font-bold mb-3 rounded-lg items-center text-center shadow-md uppercase tracking-wider">
+                                                <div className="grid grid-cols-12 gap-2 bg-[#1A202C] text-white p-2 md:p-3 font-bold mb-3 rounded-lg items-center text-center shadow-md uppercase tracking-wider">
                                                     <div className="col-span-1">STT</div>
                                                     <div className="col-span-3">Món Ăn</div>
                                                     <div className="col-span-2">Kcal</div>
@@ -357,12 +357,12 @@ export default function FlipbookModal({ isOpen, onClose }: FlipbookModalProps) {
                                                 {/* Rows 1-3 */}
                                                 <div className="space-y-3">
                                                     {/* Row 1 */}
-                                                    <div className="grid grid-cols-12 gap-2 bg-[#2D3748] text-white p-3 items-center rounded-lg shadow-md min-h-[60px]">
-                                                        <div className="col-span-1 font-bold text-base text-center text-[#F6AD55]">1</div>
+                                                    <div className="grid grid-cols-12 gap-2 bg-[#2D3748] text-white p-2 md:p-3 items-center rounded-lg shadow-md min-h-[60px]">
+                                                        <div className="col-span-1 font-bold text-xs md:text-base text-center text-[#F6AD55]">1</div>
                                                         <div className="col-span-3 font-bold text-[#EDF2F7]">Đậu Hũ Nhồi Thịt Sốt Cà</div>
                                                         <div className="col-span-2 text-center text-[#F6AD55] font-semibold">380 - 450</div>
                                                         <div className="col-span-3 text-left">
-                                                            <strong className="block text-[#F6AD55] mb-1 uppercase text-[10px]">PROTEIN TINH GỌN (LEAN PROTEIN)</strong>
+                                                            <strong className="block text-[#F6AD55] mb-1 uppercase text-[7px] md:text-[10px]">PROTEIN TINH GỌN (LEAN PROTEIN)</strong>
                                                             <span className="text-slate-300 block leading-tight">Hàm lượng đạm từ đậu phụ và thịt băm cao, chất béo thấp.</span>
                                                         </div>
                                                         <div className="col-span-3 italic text-slate-400 text-left leading-tight">
@@ -371,12 +371,12 @@ export default function FlipbookModal({ isOpen, onClose }: FlipbookModalProps) {
                                                     </div>
 
                                                     {/* Row 2 */}
-                                                    <div className="grid grid-cols-12 gap-2 bg-[#2D3748] text-white p-3 items-center rounded-lg shadow-md min-h-[60px]">
-                                                        <div className="col-span-1 font-bold text-base text-center text-[#F6AD55]">2</div>
-                                                        <div className="col-span-3 font-bold text-[#EDF2F7]">Gà Xào Sả Ớt <br/><span className="font-normal italic text-slate-400 text-[10px]">(Ăn kèm cơm)</span></div>
+                                                    <div className="grid grid-cols-12 gap-2 bg-[#2D3748] text-white p-2 md:p-3 items-center rounded-lg shadow-md min-h-[60px]">
+                                                        <div className="col-span-1 font-bold text-xs md:text-base text-center text-[#F6AD55]">2</div>
+                                                        <div className="col-span-3 font-bold text-[#EDF2F7]">Gà Xào Sả Ớt <br/><span className="font-normal italic text-slate-400 text-[7px] md:text-[10px]">(Ăn kèm cơm)</span></div>
                                                         <div className="col-span-2 text-center text-[#F6AD55] font-semibold">450 - 520</div>
                                                         <div className="col-span-3 text-left">
-                                                            <strong className="block text-[#F6AD55] mb-1 uppercase text-[10px]">ĐẠM KÈM NĂNG LƯỢNG BỀN VỮNG</strong>
+                                                            <strong className="block text-[#F6AD55] mb-1 uppercase text-[7px] md:text-[10px]">ĐẠM KÈM NĂNG LƯỢNG BỀN VỮNG</strong>
                                                             <span className="text-slate-300 block leading-tight">Cung cấp cả Protein chất lượng cao và Carb dồi dào từ cơm.</span>
                                                         </div>
                                                         <div className="col-span-3 italic text-slate-400 text-left leading-tight">
@@ -385,12 +385,12 @@ export default function FlipbookModal({ isOpen, onClose }: FlipbookModalProps) {
                                                     </div>
 
                                                     {/* Row 3 */}
-                                                    <div className="grid grid-cols-12 gap-2 bg-[#2D3748] text-white p-3 items-center rounded-lg shadow-md min-h-[60px]">
-                                                        <div className="col-span-1 font-bold text-base text-center text-[#F6AD55]">3</div>
+                                                    <div className="grid grid-cols-12 gap-2 bg-[#2D3748] text-white p-2 md:p-3 items-center rounded-lg shadow-md min-h-[60px]">
+                                                        <div className="col-span-1 font-bold text-xs md:text-base text-center text-[#F6AD55]">3</div>
                                                         <div className="col-span-3 font-bold text-[#EDF2F7]">Bún Thịt Xào</div>
                                                         <div className="col-span-2 text-center text-[#F6AD55] font-semibold">400 - 480</div>
                                                         <div className="col-span-3 text-left">
-                                                            <strong className="block text-[#68D391] mb-1 uppercase text-[10px]">CÂN BẰNG TỐT NHẤT (THE BALANCER)</strong>
+                                                            <strong className="block text-[#68D391] mb-1 uppercase text-[7px] md:text-[10px]">CÂN BẰNG TỐT NHẤT (THE BALANCER)</strong>
                                                             <span className="text-slate-300 block leading-tight">Lượng rau xanh và chất xơ lớn, Carb và Đạm vừa phải.</span>
                                                         </div>
                                                         <div className="col-span-3 italic text-slate-400 text-left leading-tight">
@@ -408,9 +408,9 @@ export default function FlipbookModal({ isOpen, onClose }: FlipbookModalProps) {
                                     <div className="flex flex-col h-full justify-center px-2">
                                          <div className="pb-4">
                                             {/* Table Implementation - Part 2 */}
-                                            <div className="w-full text-xs sm:text-[11px] md:text-xs">
+                                            <div className="w-full text-[8px] sm:text-[11px] md:text-xs">
                                                 {/* Header (Repeated for context) */}
-                                                <div className="grid grid-cols-12 gap-2 bg-[#1A202C] text-white p-3 font-bold mb-3 rounded-lg items-center text-center shadow-md uppercase tracking-wider">
+                                                <div className="grid grid-cols-12 gap-2 bg-[#1A202C] text-white p-2 md:p-3 font-bold mb-3 rounded-lg items-center text-center shadow-md uppercase tracking-wider">
                                                     <div className="col-span-1">STT</div>
                                                     <div className="col-span-3">Món Ăn</div>
                                                     <div className="col-span-2">Kcal</div>
@@ -421,12 +421,12 @@ export default function FlipbookModal({ isOpen, onClose }: FlipbookModalProps) {
                                                 {/* Rows 4-5 */}
                                                 <div className="space-y-3">
                                                     {/* Row 4 */}
-                                                    <div className="grid grid-cols-12 gap-2 bg-[#2D3748] text-white p-3 items-center rounded-lg shadow-md min-h-[60px]">
-                                                        <div className="col-span-1 font-bold text-base text-center text-[#F6AD55]">4</div>
+                                                    <div className="grid grid-cols-12 gap-2 bg-[#2D3748] text-white p-2 md:p-3 items-center rounded-lg shadow-md min-h-[60px]">
+                                                        <div className="col-span-1 font-bold text-xs md:text-base text-center text-[#F6AD55]">4</div>
                                                         <div className="col-span-3 font-bold text-[#EDF2F7]">Cơm Chiên Trứng - Xúc Xích</div>
                                                         <div className="col-span-2 text-center text-[#F6AD55] font-semibold">500 - 600</div>
                                                         <div className="col-span-3 text-left">
-                                                            <strong className="block text-[#F6AD55] mb-1 uppercase text-[10px]">NẠP NHIÊN LIỆU NHANH</strong>
+                                                            <strong className="block text-[#F6AD55] mb-1 uppercase text-[7px] md:text-[10px]">NẠP NHIÊN LIỆU NHANH</strong>
                                                             <span className="text-slate-300 block leading-tight">Hàm lượng Carb và Fat cao. Nguồn năng lượng dự trữ cho cơ thể.</span>
                                                         </div>
                                                         <div className="col-span-3 italic text-slate-400 text-left leading-tight">
@@ -435,12 +435,12 @@ export default function FlipbookModal({ isOpen, onClose }: FlipbookModalProps) {
                                                     </div>
 
                                                     {/* Row 5 */}
-                                                     <div className="grid grid-cols-12 gap-2 bg-[#2D3748] text-white p-3 items-center rounded-lg shadow-md min-h-[60px]">
-                                                        <div className="col-span-1 font-bold text-base text-center text-[#F6AD55]">5</div>
+                                                     <div className="grid grid-cols-12 gap-2 bg-[#2D3748] text-white p-2 md:p-3 items-center rounded-lg shadow-md min-h-[60px]">
+                                                        <div className="col-span-1 font-bold text-xs md:text-base text-center text-[#F6AD55]">5</div>
                                                         <div className="col-span-3 font-bold text-[#EDF2F7]">Canh Bí Đỏ Nấu Tôm Khô</div>
                                                         <div className="col-span-2 text-center text-[#F6AD55] font-semibold">120 - 180</div>
                                                         <div className="col-span-3 text-left">
-                                                            <strong className="block text-[#68D391] mb-1 uppercase text-[10px]">VITAMIN VÀ KHOÁNG CHẤT (LOW CAL)</strong>
+                                                            <strong className="block text-[#68D391] mb-1 uppercase text-[7px] md:text-[10px]">VITAMIN VÀ KHOÁNG CHẤT (LOW CAL)</strong>
                                                             <span className="text-slate-300 block leading-tight">Rất ít calo, giàu chất xơ và vitamin (Beta-Carotene).</span>
                                                         </div>
                                                         <div className="col-span-3 italic text-slate-400 text-left leading-tight">
@@ -455,12 +455,12 @@ export default function FlipbookModal({ isOpen, onClose }: FlipbookModalProps) {
 
                                 {/* PAGE 17: TIPS 1-4 */}
                                 <Page number={17}>
-                                    <h2 className="font-serif text-3xl font-bold text-center text-[#A67C52] mb-6">Tips Hay</h2>
-                                    <div className="space-y-3">
+                                    <h2 className="font-serif text-lg md:text-3xl font-bold text-center text-[#A67C52] mb-0 md:mb-6">Tips Hay</h2>
+                                    <div className="space-y-1 md:space-y-3">
                                          {tipsData.slice(0, 4).map((tip, idx) => (
                                             <div key={idx} className="bg-white p-3 rounded-lg shadow-sm border border-slate-100">
-                                                <h4 className="font-serif font-bold text-[#A67C52] text-lg mb-1">{idx+1}. {tip.title}</h4>
-                                                <p className="text-[12px] sm:text-[14px] text-slate-600 text-justify leading-relaxed">{tip.content}</p>
+                                                <h4 className="font-serif font-bold text-[#A67C52] text-xs md:text-lg mb-1">{idx+1}. {tip.title}</h4>
+                                                <p className="text-[9px] sm:text-[14px] text-slate-600 text-justify leading-relaxed">{tip.content}</p>
                                             </div>
                                          ))}
                                     </div>
@@ -475,8 +475,8 @@ export default function FlipbookModal({ isOpen, onClose }: FlipbookModalProps) {
                                     <div className="space-y-4">
                                          {tipsData.slice(4, 7).map((tip, idx) => (
                                             <div key={idx} className="bg-white p-4 rounded-lg shadow-sm border border-slate-100">
-                                                <h4 className="font-serif font-bold text-[#A67C52] text-lg mb-2">{idx+5}. {tip.title}</h4>
-                                                <p className="text-[12px] sm:text-[14px] text-slate-600 text-justify leading-relaxed">{tip.content}</p>
+                                                <h4 className="font-serif font-bold text-[#A67C52] text-xs md:text-lg mb-2">{idx+5}. {tip.title}</h4>
+                                                <p className="text-[9px] sm:text-[14px] text-slate-600 text-justify leading-relaxed">{tip.content}</p>
                                             </div>
                                          ))}
                                     </div>
@@ -485,8 +485,8 @@ export default function FlipbookModal({ isOpen, onClose }: FlipbookModalProps) {
                                 {/* PAGE 19: CONCLUSION */}
                                 <Page number={19}>
                                     <div className="flex flex-col h-full justify-center text-center px-4">
-                                        <h2 className="font-serif text-3xl font-bold text-[#2D2A26] mb-6 story-script-regular">Lời Kết</h2>
-                                        <p className="text-slate-600 leading-relaxed text-base italic mb-8">
+                                        <h2 className="font-serif text-lg md:text-3xl font-bold text-[#2D2A26] mb-6 story-script-regular">Lời Kết</h2>
+                                        <p className="text-slate-600 leading-relaxed text-[10px] md:text-base italic mb-8">
                                             &quot;HÀNH TRÌNH TIẾT KIỆM CỦA BẠN CHỈ MỚI BẮT ĐẦU! Cảm ơn bạn đã tin tưởng The Right Meal. Đừng quên truy cập Website/Fanpage của Nhóm 60 để nhận thêm Thực đơn mẫu, Mẹo đi chợ và tham gia cộng đồng Review Quán Ăn Ngon - Rẻ nhé!&quot;
                                         </p>
                                         <div className="flex justify-center mb-8">
