@@ -66,17 +66,17 @@ export default function ContactPage() {
 
         {/* NEWSLETTER & FEEDBACK SECTION (Split Layout) */}
         {/* Tối ưu: gap-6 trên mobile, gap-10 trên PC */}
-        <div className="grid lg:grid-cols-2 gap-6 md:gap-10">
+        <div className="grid  gap-6 md:gap-10">
             
             {/* Newsletter */}
             {/* Tối ưu: p-6 trên mobile (tránh bị quá dày), p-12 trên PC giữ nguyên design */}
             <section className="bg-[#f6efe1] p-6 md:p-12 text-center flex flex-col items-center justify-center border border-[#f0e6c8]">
                 <div className="w-12 h-1 bg-[#d9a07a] mb-6"></div>
                 <h2 className="font-(--font-playfair) text-2xl md:text-4xl text-[#4b5861] mb-4 italic leading-tight">
-                    Gặp ngay CLE-DIARY nào!
+                    Gặp ngay  The Right Meal nào!
                 </h2>
                 <p className="text-[#6b6b6b] mb-6 md:mb-8 text-sm md:text-base">
-                  Đăng kí để nhận thông báo mới nhất từ CLE-DIARY nhé!
+                  Đăng kí để nhận thông báo mới nhất từ  The Right Meal nhé!
                 </p>
                 
                 <form action="mailto:therightmeal.site@gmail.com" method="POST" encType="text/plain" className="w-full max-w-md space-y-4">
@@ -99,7 +99,7 @@ export default function ContactPage() {
 
             {/* Feedback Form */}
             {/* Tối ưu: p-6 trên mobile, p-12 trên PC */}
-            <section className="bg-[#f6efe1] p-6 md:p-12 border border-[#f0e6c8]">
+            {/* <section className="bg-[#f6efe1] p-6 md:p-12 border border-[#f0e6c8]">
                 <h2 className="font-(--font-playfair) text-2xl md:text-4xl text-[#4b5861] mb-2 leading-tight">
                     CLE-DIARY luôn sẵn sàng lắng nghe
                 </h2>
@@ -118,13 +118,12 @@ export default function ContactPage() {
                         />
                     </div>
                     <div className="text-right">
-                         {/* Tối ưu: Tăng vùng bấm (padding) một chút cho mobile */}
                          <button type="submit" className="inline-block border border-[#4b5861] text-[#4b5861] px-8 py-3 md:py-2 uppercase text-xs tracking-widest hover:bg-[#4b5861] hover:text-white transition-colors cursor-pointer">
                             Send it
                         </button>
                     </div>
                 </form>
-            </section>
+            </section> */}
         </div>
 
       </div>

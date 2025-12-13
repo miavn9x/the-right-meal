@@ -8,19 +8,19 @@ const feedbacks = [
         quote: "Mình thực sự bất ngờ vì The Right Meal giúp mình kiểm soát chi tiêu ăn uống dễ hơn rất nhiều. Trước đây mỗi tháng mình luôn tiêu vượt 2–3 trăm nghìn chỉ vì không ghi lại bữa ăn. Sau khi dùng web hơn 2 tuần, mình biết rõ bữa nào tốn nhiều nhất và điều chỉnh lại rất nhanh. Ngoài ra mục thực đơn mẫu theo tuần quá hữu ích, món dễ nấu mà vẫn đủ chất. Dự án sinh viên làm nhưng chất lượng rất chỉn chu!", 
         author: "Nguyễn Phương Thảo", 
         role: "K65",
-        img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400"
+        img: "./assets/reviews/1.png"
     },
     { 
         quote: "Điều mình thích nhất ở The Right Meal là phần gợi ý các quán ăn “healthy & budget” quanh trường. Nhờ vậy mình tìm được mấy quán ngon – rẻ mà trước giờ không biết luôn. Tính năng Review địa điểm rất thật và sát nhu cầu sinh viên. Rõ ràng website được xây dựng từ chính trải nghiệm của người học ULIS, không hề lý thuyết một chút nào.", 
         author: "Phạm Hữu Phước", 
         role: "K66",
-        img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400"
+        img: "./assets/reviews/2.png"
     },
     { 
         quote: "The Right Meal đúng là cứu tinh cho mình – một đứa không biết cân bằng dinh dưỡng và toàn ăn uống thất thường. Mục ‘Survival Meal’ có những mẹo đi chợ và chuẩn bị bữa ăn siêu tiết kiệm mà trước giờ mình chưa từng nghĩ tới. Sau 1 tháng dùng web, mình cảm thấy đỡ mệt mỏi hơn, ăn uống đều hơn, và còn tiết kiệm được kha khá. Rất đáng để sinh viên ULIS dùng thử!", 
         author: "Đàm Quang Chính", 
         role: "K64",
-        img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400"
+        img: "./assets/reviews/3.png"
     }
 ];
 
@@ -62,7 +62,7 @@ export default function FeedbackSection() {
                             </p>
                             
                             <div className="flex items-center gap-4 pt-6 border-t border-dashed border-[#D6D3C9]">
-                                <div className="w-10 h-10 md:w-12 md:h-12 relative rounded-full overflow-hidden shrink-0 border-2 border-[#A67C52]">
+                                <div className="w-20 h-20  relative rounded-full overflow-hidden shrink-0 border-2 border-[#A67C52]">
                                      {/* eslint-disable-next-line @next/next/no-img-element */}
                                     <img src={feedback.img} alt={feedback.author} className="object-cover w-full h-full" />
                                 </div>
