@@ -31,7 +31,7 @@ export default function EbookSection() {
                     <h2 className="story-script-regular text-4xl md:text-5xl lg:text-7xl text-slate-900 leading-tight mb-4 md:mb-6">
                         Survival Meal <span className="text-[#A67C52] italic">ULIS</span>
                     </h2>
-                    <p className="text-lg md:text-xl lg:text-2xl text-slate-900 font-light max-w-4xl mx-auto font-serif">
+                    <p className="text-lg md:text-xl lg:text-2xl text-slate-900 font-light max-w-4xl mx-auto ">
                         Giải pháp <span className="italic">&quot;Ăn Ngon - Sống Khỏe - Tiết Kiệm&quot;</span> dành riêng cho sinh viên.
                     </p>
                     <div className="w-24 md:w-32 h-1 bg-[#A67C52] mx-auto mt-6 md:mt-8"></div>
@@ -54,7 +54,7 @@ export default function EbookSection() {
                                 FREE
                             </div>
                         </motion.div>
-                         <p className="mt-6 text-[#A67C52] font-serif italic text-lg animate-pulse flex items-center gap-2 cursor-pointer" onClick={() => setIsFlipbookOpen(true)}>
+                         <p className="mt-6 text-[#A67C52]  text-lg animate-pulse flex items-center gap-2 cursor-pointer" onClick={() => setIsFlipbookOpen(true)}>
                             (Bấm vào sách để đọc thử)
                         </p>
                     </div>
