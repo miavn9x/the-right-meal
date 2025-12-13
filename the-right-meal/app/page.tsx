@@ -1,7 +1,5 @@
 import About from "@/components/About";
-import ContactPage from "@/components/ContactPage";
-import ContactSection from "@/components/Footer";
-import EbookSection from "@/components/EbookSection";
+import ContactPage from "@/components/ContactPage";import EbookSection from "@/components/EbookSection";
 import FeedbackSection from "@/components/FeedbackSection";
 import HeroSection from "@/components/HeroSection";
 import ReviewSection from "@/components/ReviewSection";
@@ -18,7 +16,6 @@ export default function Home() {
       <ReviewSection />
       <FeedbackSection />
       <ContactPage/>
-      <ContactSection />
     </main>
   );
 }
