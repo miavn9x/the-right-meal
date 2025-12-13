@@ -95,7 +95,7 @@ export default function ReviewSection() {
         // Tối ưu: padding mobile py-12
         <section id="review" className="relative bg-[#F9F7F2] py-12 md:py-24 overflow-hidden font-(--font-outfit) text-[#2D2A26]">
             {/* Background Texture similar to Toolkit */}
-            <div className="absolute top-0 left-0 w-full h-full bg-[url('/noise.png')] opacity-10 pointer-events-none"></div>
+            <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1543353071-873f17a7a088?w=1920&q=80')" }}></div>
 
             <div className="container mx-auto px-4 md:px-8 relative z-10">
                 {/* Header */}
