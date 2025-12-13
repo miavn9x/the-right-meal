@@ -14,7 +14,7 @@ export default function EbookSection() {
 
 
     return (
-        <section id="ebook" className="relative py-12 md:py-20 bg-[#fffcf7] font-(--font-outfit)">
+        <section id="ebook" className="relative py-12 md:py-20 bg-[#fffcf7]">
             {/* Blend Overlay: Fades from About section's #F2F0E9 to transparent */}
             <div className="absolute top-0 left-0 w-full h-32 bg-linear-to-b from-[#F2F0E9] to-transparent z-0 pointer-events-none"></div>
             {/* Modal */}
