@@ -1,7 +1,257 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import {  Target, AlertCircle, TrendingUp, Lightbulb } from 'lucide-react';
+import { Target, AlertCircle, TrendingUp, Lightbulb, Play, Pause, Volume2, VolumeX, Maximize, Minimize } from 'lucide-react';
+import { useState, useRef, useEffect } from 'react';
+
+// Custom Video Player Component
+interface VideoPlayerProps {
+  src: string;
+  poster: string;
+  title: string;
+}
+
+function VideoPlayer({ src, poster, title }: VideoPlayerProps) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
+  const [volume, setVolume] = useState(1);
+  const [isMuted, setIsMuted] = useState(false);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const [showControls, setShowControls] = useState(true);
+  const hideControlsTimeout = useRef<NodeJS.Timeout | null>(null);
+
+  // Toggle play/pause
+  const togglePlay = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause();
+      } else {
+        videoRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
+
+  // Handle time update
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const handleTimeUpdate = () => setCurrentTime(video.currentTime);
+    const handleLoadedMetadata = () => setDuration(video.duration);
+    const handleEnded = () => setIsPlaying(false);
+
+    video.addEventListener('timeupdate', handleTimeUpdate);
+    video.addEventListener('loadedmetadata', handleLoadedMetadata);
+    video.addEventListener('ended', handleEnded);
+
+    return () => {
+      video.removeEventListener('timeupdate', handleTimeUpdate);
+      video.removeEventListener('loadedmetadata', handleLoadedMetadata);
+      video.removeEventListener('ended', handleEnded);
+    };
+  }, []);
+
+  // Seek video
+  const handleSeek = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newTime = parseFloat(e.target.value);
+    setCurrentTime(newTime);
+    if (videoRef.current) {
+      videoRef.current.currentTime = newTime;
+    }
+  };
+
+  // Volume control
+  const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newVolume = parseFloat(e.target.value);
+    setVolume(newVolume);
+    if (videoRef.current) {
+      videoRef.current.volume = newVolume;
+    }
+    if (newVolume > 0) setIsMuted(false);
+  };
+
+  // Mute toggle
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !isMuted;
+      setIsMuted(!isMuted);
+    }
+  };
+
+  // Fullscreen toggle
+  const toggleFullscreen = () => {
+    if (!containerRef.current) return;
+
+    if (!isFullscreen) {
+      if (containerRef.current.requestFullscreen) {
+        containerRef.current.requestFullscreen();
+      }
+    } else {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      }
+    }
+  };
+
+  // Listen for fullscreen changes
+  useEffect(() => {
+    const handleFullscreenChange = () => {
+      setIsFullscreen(!!document.fullscreenElement);
+    };
+
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+    return () => {
+      document.removeEventListener('fullscreenchange', handleFullscreenChange);
+    };
+  }, []);
+
+  // Auto-hide controls after 3 seconds
+  const resetHideControlsTimeout = () => {
+    setShowControls(true);
+    if (hideControlsTimeout.current) {
+      clearTimeout(hideControlsTimeout.current);
+    }
+    hideControlsTimeout.current = setTimeout(() => {
+      if (isPlaying) setShowControls(false);
+    }, 3000);
+  };
+
+  useEffect(() => {
+    return () => {
+      if (hideControlsTimeout.current) {
+        clearTimeout(hideControlsTimeout.current);
+      }
+    };
+  }, []);
+
+  // Format time
+  const formatTime = (time: number) => {
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60);
+    return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+  };
+
+  return (
+    <div 
+      ref={containerRef}
+      className="relative w-full h-full bg-black rounded-xl overflow-hidden group"
+      onMouseMove={resetHideControlsTimeout}
+      onMouseEnter={() => setShowControls(true)}
+      onMouseLeave={() => isPlaying && setShowControls(false)}
+    >
+      {/* Video Element */}
+      <video
+        ref={videoRef}
+        className="w-full h-full object-cover"
+        poster={poster}
+        onClick={togglePlay}
+      >
+        <source src={src} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
+      {/* Center Play/Pause Button */}
+      <div 
+        className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${
+          showControls || !isPlaying ? 'opacity-100' : 'opacity-0'
+        }`}
+        onClick={togglePlay}
+      >
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          className="w-20 h-20 bg-white/20 backdrop-blur-sm hover:bg-white/30 rounded-full flex items-center justify-center text-white transition-colors"
+        >
+          {isPlaying ? (
+            <Pause className="w-10 h-10" fill="white" />
+          ) : (
+            <Play className="w-10 h-10 ml-1" fill="white" />
+          )}
+        </motion.button>
+      </div>
+
+      <div 
+        className={`absolute bottom-0 left-0 right-0 bg-linear-to-t from-black/80 to-transparent p-4 transition-opacity duration-300 ${
+          showControls ? 'opacity-100' : 'opacity-0'
+        }`}
+      >
+        {/* Progress Bar */}
+        <div className="mb-3">
+          <input
+            type="range"
+            min={0}
+            max={duration || 0}
+            value={currentTime}
+            onChange={handleSeek}
+            className="w-full h-1 bg-white/30 rounded-lg appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-3 [&::-webkit-slider-thumb]:h-3 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:cursor-pointer [&::-moz-range-thumb]:w-3 [&::-moz-range-thumb]:h-3 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-white [&::-moz-range-thumb]:border-0 [&::-moz-range-thumb]:cursor-pointer"
+          />
+          <div className="flex justify-between text-white text-xs mt-1">
+            <span>{formatTime(currentTime)}</span>
+            <span>{formatTime(duration)}</span>
+          </div>
+        </div>
+
+        {/* Control Buttons */}
+        <div className="flex items-center justify-between gap-4">
+          {/* Left: Play/Pause */}
+          <button
+            onClick={togglePlay}
+            className="text-white hover:text-[#A67C52] transition-colors"
+          >
+            {isPlaying ? <Pause className="w-6 h-6" /> : <Play className="w-6 h-6" />}
+          </button>
+
+          {/* Center: Title */}
+          <div className="flex-1 text-white text-sm font-medium truncate px-2">
+            {title}
+          </div>
+
+          {/* Right: Volume & Fullscreen */}
+          <div className="flex items-center gap-3">
+            {/* Volume Control */}
+            <div className="flex items-center gap-2 group/volume">
+              <button
+                onClick={toggleMute}
+                className="text-white hover:text-[#A67C52] transition-colors"
+              >
+                {isMuted || volume === 0 ? (
+                  <VolumeX className="w-6 h-6" />
+                ) : (
+                  <Volume2 className="w-6 h-6" />
+                )}
+              </button>
+              <input
+                type="range"
+                min={0}
+                max={1}
+                step={0.1}
+                value={isMuted ? 0 : volume}
+                onChange={handleVolumeChange}
+                className="w-0 group-hover/volume:w-20 transition-all duration-300 h-1 bg-white/30 rounded-lg appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-3 [&::-webkit-slider-thumb]:h-3 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:cursor-pointer [&::-moz-range-thumb]:w-3 [&::-moz-range-thumb]:h-3 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-white [&::-moz-range-thumb]:border-0 [&::-moz-range-thumb]:cursor-pointer"
+              />
+            </div>
+
+            {/* Fullscreen */}
+            <button
+              onClick={toggleFullscreen}
+              className="text-white hover:text-[#A67C52] transition-colors"
+            >
+              {isFullscreen ? (
+                <Minimize className="w-6 h-6" />
+              ) : (
+                <Maximize className="w-6 h-6" />
+              )}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 const contentData = [
   {
@@ -117,24 +367,12 @@ export default function About() {
                 </p>
              </div>
              
-             <div className="w-full lg:w-2/3 aspect-video bg-[#EBE7DE] rounded-xl overflow-hidden shadow-2xl relative group">
-                <video 
-                  className="w-full h-full object-cover cursor-pointer" 
-                  controls
-                  preload="metadata"
+             <div className="w-full lg:w-2/3 aspect-video bg-[#EBE7DE] rounded-xl overflow-hidden shadow-2xl relative">
+                <VideoPlayer 
+                  src="/video/Introduction Video _ CNTT & TT _ Nhóm 60.mp4"
                   poster="/ebook/anh nen vdeo.jpg"
-                  onClick={(e) => {
-                    const video = e.target as HTMLVideoElement;
-                    if (video.paused) {
-                      video.play();
-                    } else {
-                      video.pause();
-                    }
-                  }}
-                >
-                  <source src="/video/Introduction Video _ CNTT & TT _ Nhóm 60.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
+                  title="Câu chuyện The Right Meal"
+                />
              </div>
           </motion.div>
 

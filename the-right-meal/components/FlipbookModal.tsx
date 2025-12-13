@@ -112,12 +112,26 @@ const toc = [
     "Trang Bìa",
     "Mục lục",
     "Lời nói đầu",
-    "Luật Chơi của The Right Meal",
     "Survival Meal là gì?",
+    "Luật Chơi của The Right Meal",
+    
     "Bộ Công Thức",
     "Bảng Tính Dinh dưỡng",
     "Tips Hay",
     "Lời Kết"
+];
+
+// Page numbers for each TOC item
+const pageNumbers = [
+    "0",       // Trang Bìa
+    "1",       // Mục lục
+    "2",       // Lời nói đầu
+    "3",       // Survival Meal là gì?
+    "4",       // Luật Chơi của The Right Meal
+    "5",  // Bộ Công Thức
+    "14", // Bảng Tính Dinh dưỡng
+    "16", // Tips Hay
+    "18"       // Lời Kết
 ];
 
 // --- COMPONENTS ---
@@ -178,7 +192,7 @@ export default function FlipbookModal({ isOpen, onClose }: FlipbookModalProps) {
                         initial={{ scale: 0.9, y: 20 }}
                         animate={{ scale: 1, y: 0 }}
                         exit={{ scale: 0.9, y: 20 }}
-                        className="relative w-full max-w-6xl flex items-center justify-center h-[95vh] md:h-auto"
+                        className="relative w-full max-w-6xl flex items-center justify-center h-[90vh] md:h-auto"
                         onClick={(e) => e.stopPropagation()}
                     >
                         {/* Navigation Buttons */}
@@ -213,17 +227,17 @@ export default function FlipbookModal({ isOpen, onClose }: FlipbookModalProps) {
                                 </div>
 
                                 {/* PAGE 2: MỤC LỤC */}
-                                <Page number={2}>
+                                <Page number={1}>
                                     <div className="flex flex-col h-full justify-center">
                                         <h2 className="font-serif text-lg md:text-3xl font-bold text-center text-[#A67C52] mb-8 border-b-2 border-[#A67C52] pb-4 inline-block mx-auto">Mục Lục</h2>
                                         <ul className="space-y-4 px-4">
                                             {toc.map((item, idx) => (
                                                 <li key={idx} className="flex items-baseline justify-between text-slate-700 hover:text-[#A67C52] transition-colors cursor-pointer group">
-                                                    <span className="font-serif text-[10px] md:text-lg font-medium relative z-10 bg-[#fffcf7] pr-2 group-hover:pl-2 transition-all">
-                                                        {idx + 1}. {item}
+                                                    <span className="story-script-regular text-[10px] md:text-lg font-medium relative z-10 bg-[#fffcf7] pr-2 group-hover:pl-2 transition-all">
+                                                        {item}
                                                     </span>
                                                     <span className="flex-1 border-b border-dotted border-slate-300 mx-2 relative -top-1"></span>
-                                                    <span className="text-[9px] md:text-sm font-mono text-slate-400">{idx === 0 ? '1' : ''}</span>
+                                                    <span className="text-[9px] md:text-sm font-mono text-slate-400">{pageNumbers[idx]}</span>
                                                 </li>
                                             ))}
                                         </ul>
@@ -231,7 +245,7 @@ export default function FlipbookModal({ isOpen, onClose }: FlipbookModalProps) {
                                 </Page>
 
                                            {/* PAGE 3: LỜI NÓI ĐẦU */}
-                                <Page number={3}>
+                                <Page number={2}>
                                     <div className="flex flex-col h-full justify-center text-center px-4">
                                         <div className="mb-6 mx-auto w-12 h-12 text-[#A67C52]">
                                             <Leaf className="w-full h-full" />
@@ -244,7 +258,7 @@ export default function FlipbookModal({ isOpen, onClose }: FlipbookModalProps) {
                                     </div>
                                 </Page>
                                 {/* PAGE 4: SURVIVAL MEAL LÀ GÌ? */}
-                                <Page number={4}>
+                                <Page number={3}>
                                      <div className="flex flex-col h-full justify-center">
                                         <h2 className="font-serif text-base md:text-2xl font-bold text-[#2D2A26] mb-6 border-l-4 border-[#A67C52] pl-4">Survival Meal ULIS là gì?</h2>
                                         <div className="text-slate-600 space-y-4 text-justify leading-relaxed text-[9px] md:text-base">
@@ -261,7 +275,7 @@ export default function FlipbookModal({ isOpen, onClose }: FlipbookModalProps) {
                                 </Page>
 
                                 {/* PAGE 5: LUẬT CHƠI */}
-                                <Page number={5}>
+                                <Page number={4}>
                                     <div className="flex flex-col h-full justify-center">
                                         <h2 className="font-serif text-base md:text-2xl font-bold text-center text-[#2D2A26] mb-8 uppercase tracking-widest">Luật Chơi<br/><span className="text-[#A67C52] text-[10px] md:text-sm lowercase tracking-normal font-sans italic">của The Right Meal</span></h2>
                                         <div className="space-y-6">
@@ -276,7 +290,7 @@ export default function FlipbookModal({ isOpen, onClose }: FlipbookModalProps) {
                                 </Page>
 
                                 {/* PAGE 6: SECTION TITLE */}
-                                <Page number={6}>
+                                <Page number={5}>
                                     <div className="flex flex-col h-full justify-center items-center">
                                         <h1 className="story-script-regular text-5xl md:text-6xl text-[#A67C52] text-center leading-tight p-4">
                                             Bộ Công Thức <br/> Nấu Ăn
@@ -287,7 +301,7 @@ export default function FlipbookModal({ isOpen, onClose }: FlipbookModalProps) {
 
                                 {/* RECIPE PAGES: 1 Recipe per Page (Pages 7-14) */}
                                 {recipesData.map((recipe, index) => (
-                                    <Page key={recipe.id} number={7 + index}>
+                                    <Page key={recipe.id} number={6 + index}>
                                         <div className="flex flex-col h-full items-center">
                                             {/* Header - Removed "Bộ Công Thức" header as we have a title page now */}
                                             <div className="w-full flex-1 flex flex-col items-center">
@@ -332,7 +346,7 @@ export default function FlipbookModal({ isOpen, onClose }: FlipbookModalProps) {
                                 ))}
 
                                 {/* PAGE 15: NUTRITION PART 1 (Items 1-3) */}
-                                <Page number={15}>
+                                <Page number={14}>
                                     <div className="flex flex-col h-full px-2">
                                          <h2 className="font-serif text-lg md:text-3xl font-bold text-center text-[#2D2A26] mb-4 ">Bảng Dinh Dưỡng</h2>
                                          
@@ -403,7 +417,7 @@ export default function FlipbookModal({ isOpen, onClose }: FlipbookModalProps) {
                                 </Page>
 
                                 {/* PAGE 16: NUTRITION PART 2 (Items 4-5) */}
-                                <Page number={16}>
+                                <Page number={15}>
                                     <div className="flex flex-col h-full justify-center px-2">
                                          <div className="pb-4">
                                             {/* Table Implementation - Part 2 */}
@@ -453,7 +467,7 @@ export default function FlipbookModal({ isOpen, onClose }: FlipbookModalProps) {
                                 </Page> 
 
                                 {/* PAGE 17: TIPS 1-4 */}
-                                <Page number={17}>
+                                <Page number={16}>
                                     <h2 className="font-serif text-lg md:text-3xl font-bold text-center text-[#A67C52] mb-0 md:mb-6">Tips Hay</h2>
                                     <div className="space-y-1 md:space-y-3">
                                          {tipsData.slice(0, 4).map((tip, idx) => (
@@ -466,7 +480,7 @@ export default function FlipbookModal({ isOpen, onClose }: FlipbookModalProps) {
                                 </Page>
 
                                 {/* PAGE 18: TIPS 5-7 */}
-                                <Page number={18}>
+                                <Page number={17}>
                                     {/* Add a spacer to match the height of the Main Title + Margin on Page 17 so cards align */}
                                     <div className=" w-full mb-16 pointer-events-none md:block hidden"></div> 
                                     {/* Mobile: just top align. Desktop: align with opposite page cards */}
@@ -482,7 +496,7 @@ export default function FlipbookModal({ isOpen, onClose }: FlipbookModalProps) {
                                 </Page>
 
                                 {/* PAGE 19: CONCLUSION */}
-                                <Page number={19}>
+                                <Page number={18}>
                                     <div className="flex flex-col h-full justify-center text-center px-4">
                                         <h2 className="font-serif text-lg md:text-3xl font-bold text-[#2D2A26] mb-6 story-script-regular">Lời Kết</h2>
                                         <p className="text-slate-600 leading-relaxed text-[10px] md:text-base italic mb-8">

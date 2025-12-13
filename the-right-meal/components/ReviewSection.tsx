@@ -37,7 +37,7 @@ const reviews = [
             "Ít rau xanh: Chủ yếu là đồ chua, cần chủ động ăn thêm rau.",
             "Mức giá sẽ nhỉnh hơn nếu gọi thêm topping hoặc đồ uống."
         ],
-        img: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800"
+        img: "/assets/reviews/com-tamm.jpg"
     },
     { 
         name: "Bún Chả Hoa Châu", 
@@ -54,7 +54,7 @@ const reviews = [
             "Lượng tinh bột cao: Bún là tinh bột chính.",
             "Chất béo từ thịt: Mỡ từ thịt nướng có thể không phù hợp chế độ ăn kiêng nghiêm ngặt."
         ],
-        img: "https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?w=800"
+        img: "/assets/reviews/bun-chao.webp"
     },
     { 
         name: "Bếp nhà Bul", 
