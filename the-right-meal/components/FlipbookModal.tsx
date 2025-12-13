@@ -166,7 +166,6 @@ export default function FlipbookModal({ isOpen, onClose }: FlipbookModalProps) {
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 md:p-8 bg-black/90 backdrop-blur-md"
-                    onClick={onClose}
                 >
                     <button 
                         onClick={onClose}
